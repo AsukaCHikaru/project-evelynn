@@ -1,0 +1,34 @@
+CLAUDE.md
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+.next/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Coverage / test
+coverage/
+
+# Misc
+*.tsbuildinfo
