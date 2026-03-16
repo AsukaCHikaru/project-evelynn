@@ -1,0 +1,5 @@
+DROP TYPE IF EXISTS pronoun;
+DROP TYPE IF EXISTS tense;
+DROP TYPE IF EXISTS gender;
+DROP TYPE IF EXISTS difficulty;
+DROP TYPE IF EXISTS part_of_speech;
