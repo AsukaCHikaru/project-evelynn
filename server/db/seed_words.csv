@@ -1,0 +1,511 @@
+word,en_translation,part_of_speech,difficulty,gender,example_sentence,en_example_sentence
+hola,hello,interjection,A1,,¡Hola! ¿Cómo estás?,Hello! How are you?
+adiós,goodbye,interjection,A1,,"Adiós, nos vemos mañana.","Goodbye, see you tomorrow."
+por favor,please,phrase,A1,,"Un café, por favor.","A coffee, please."
+gracias,thank you,interjection,A1,,Muchas gracias por tu ayuda.,Thank you very much for your help.
+de nada,you're welcome,phrase,A1,,"De nada, es un placer.","You're welcome, it's a pleasure."
+sí,yes,adverb,A1,,"Sí, yo quiero ir.","Yes, I want to go."
+no,no,adverb,A1,,No tengo tiempo.,I don't have time.
+buenos días,good morning,phrase,A1,,"Buenos días, señor.","Good morning, sir."
+buenas tardes,good afternoon,phrase,A1,,"Buenas tardes, ¿cómo está?","Good afternoon, how are you?"
+buenas noches,good night,phrase,A1,,"Buenas noches, que descanses.","Good night, rest well."
+perdón,sorry / excuse me,interjection,A1,,"Perdón, ¿dónde está el baño?","Excuse me, where is the bathroom?"
+yo,I,pronoun,A1,,Yo soy estudiante.,I am a student.
+tú,you (informal),pronoun,A1,,¿Tú hablas español?,Do you speak Spanish?
+él,he,pronoun,A1,masculine,Él vive en Madrid.,He lives in Madrid.
+ella,she,pronoun,A1,feminine,Ella canta muy bien.,She sings very well.
+nosotros,we,pronoun,A1,masculine,Nosotros vamos al parque.,We go to the park.
+ellos,they (masc.),pronoun,A1,masculine,Ellos estudian mucho.,They study a lot.
+ellas,they (fem.),pronoun,A1,feminine,Ellas trabajan juntas.,They work together.
+usted,you (formal),pronoun,A1,,¿Usted quiere café?,Would you like coffee?
+ustedes,you all (formal),pronoun,A1,,¿Ustedes vienen mañana?,Are you all coming tomorrow?
+ser,to be (permanent),verb,A1,,Yo soy de Japón.,I am from Japan.
+estar,to be (state/location),verb,A1,,Estoy cansado hoy.,I am tired today.
+tener,to have,verb,A1,,Tengo dos hermanos.,I have two siblings.
+ir,to go,verb,A1,,Voy a la tienda.,I go to the store.
+hacer,to do / to make,verb,A1,,¿Qué haces hoy?,What are you doing today?
+poder,to be able to / can,verb,A1,,¿Puedo ir contigo?,Can I go with you?
+querer,to want / to love,verb,A1,,Quiero aprender español.,I want to learn Spanish.
+decir,to say / to tell,verb,A1,,¿Qué dices?,What are you saying?
+hablar,to speak,verb,A1,,Hablo un poco de español.,I speak a little Spanish.
+comer,to eat,verb,A1,,Vamos a comer juntos.,Let's eat together.
+beber,to drink,verb,A1,,¿Quieres beber agua?,Do you want to drink water?
+vivir,to live,verb,A1,,Vivo en Tokio.,I live in Tokyo.
+saber,to know (facts),verb,A1,,No sé la respuesta.,I don't know the answer.
+dar,to give,verb,A1,,Dame tu número.,Give me your number.
+ver,to see,verb,A1,,¿Puedes ver el mar?,Can you see the sea?
+venir,to come,verb,A1,,¿Vienes a la fiesta?,Are you coming to the party?
+llevar,to carry / to wear,verb,A1,,Llevo una camisa azul.,I'm wearing a blue shirt.
+llamar,to call,verb,A1,,Me llamo Carlos.,My name is Carlos.
+necesitar,to need,verb,A1,,Necesito ayuda.,I need help.
+gustar,to like / to please,verb,A1,,Me gusta la música.,I like music.
+hay,there is / there are,verb,A1,,Hay un parque cerca.,There is a park nearby.
+comprar,to buy,verb,A1,,Voy a comprar ropa nueva.,I'm going to buy new clothes.
+el,the (masc.),article,A1,masculine,El perro es grande.,The dog is big.
+la,the (fem.),article,A1,feminine,La casa es bonita.,The house is pretty.
+los,the (masc. pl.),article,A1,masculine,Los niños juegan.,The children play.
+las,the (fem. pl.),article,A1,feminine,Las flores son rojas.,The flowers are red.
+un,a / an (masc.),article,A1,masculine,Tengo un gato.,I have a cat.
+una,a / an (fem.),article,A1,feminine,Hay una mesa aquí.,There is a table here.
+bueno,good / well (filler),adjective,A1,masculine,Es un buen día.,It's a good day.
+malo,bad,adjective,A1,masculine,Hace mal tiempo hoy.,The weather is bad today.
+grande,big,adjective,A1,,La ciudad es muy grande.,The city is very big.
+pequeño,small,adjective,A1,masculine,El niño es pequeño.,The boy is small.
+nuevo,new,adjective,A1,masculine,Tengo un teléfono nuevo.,I have a new phone.
+mi,my,adjective,A1,,Esta es mi casa.,This is my house.
+tu,your (informal),adjective,A1,,¿Cuál es tu nombre?,What is your name?
+su,his / her / your (formal),adjective,A1,,Su casa es grande.,His house is big.
+este,this,adjective,A1,masculine,Este libro es interesante.,This book is interesting.
+ese,that,adjective,A1,masculine,Ese carro es rojo.,That car is red.
+otro,other / another,adjective,A1,masculine,Dame otro vaso.,Give me another glass.
+mucho,much / a lot,adverb,A1,,Trabajo mucho.,I work a lot.
+muy,very,adverb,A1,,Ella es muy inteligente.,She is very intelligent.
+bien,well,adverb,A1,,"Estoy bien, gracias.","I'm well, thanks."
+mal,badly / bad,adverb,A1,,Me siento mal.,I feel bad.
+aquí,here,adverb,A1,,Ven aquí.,Come here.
+allí,there,adverb,A1,,El banco está allí.,The bank is over there.
+ahora,now,adverb,A1,,Vamos ahora.,Let's go now.
+hoy,today,adverb,A1,,Hoy es lunes.,Today is Monday.
+mañana,tomorrow,adverb,A1,,Te veo mañana.,I'll see you tomorrow.
+siempre,always,adverb,A1,,Siempre llego temprano.,I always arrive early.
+nunca,never,adverb,A1,,Nunca como carne.,I never eat meat.
+también,also / too,adverb,A1,,Yo también quiero ir.,I also want to go.
+más,more,adverb,A1,,Quiero más café.,I want more coffee.
+menos,less,adverb,A1,,Necesito menos estrés.,I need less stress.
+dónde,where,adverb,A1,,¿Dónde vives?,Where do you live?
+cuándo,when,adverb,A1,,¿Cuándo llegas?,When do you arrive?
+cómo,how,adverb,A1,,¿Cómo te llamas?,What is your name?
+cuánto,how much,adverb,A1,,¿Cuánto cuesta?,How much does it cost?
+casa,house / home,noun,A1,feminine,Voy a mi casa.,I'm going to my house.
+agua,water,noun,A1,feminine,Quiero un vaso de agua.,I want a glass of water.
+comida,food,noun,A1,feminine,La comida está lista.,The food is ready.
+persona,person,noun,A1,feminine,Es una buena persona.,They are a good person.
+hombre,man,noun,A1,masculine,El hombre camina por la calle.,The man walks down the street.
+mujer,woman,noun,A1,feminine,La mujer lee un libro.,The woman reads a book.
+niño,boy / child,noun,A1,masculine,El niño juega en el parque.,The boy plays in the park.
+amigo,friend,noun,A1,masculine,Él es mi mejor amigo.,He is my best friend.
+familia,family,noun,A1,feminine,Mi familia es grande.,My family is big.
+madre,mother,noun,A1,feminine,Mi madre cocina muy bien.,My mother cooks very well.
+padre,father,noun,A1,masculine,Mi padre trabaja mucho.,My father works a lot.
+tiempo,time / weather,noun,A1,masculine,No tengo tiempo.,I don't have time.
+día,day,noun,A1,masculine,Hoy es un buen día.,Today is a good day.
+noche,night,noun,A1,feminine,La noche es tranquila.,The night is peaceful.
+cosa,thing,noun,A1,feminine,¿Qué es esta cosa?,What is this thing?
+nombre,name,noun,A1,masculine,¿Cuál es tu nombre?,What is your name?
+hora,hour / time,noun,A1,feminine,¿Qué hora es?,What time is it?
+número,number,noun,A1,masculine,¿Cuál es tu número de teléfono?,What is your phone number?
+café,coffee,noun,A1,masculine,Necesito un café.,I need a coffee.
+baño,bathroom,noun,A1,masculine,¿Dónde está el baño?,Where is the bathroom?
+uno,one,numeral,A1,masculine,Solo quiero uno.,I only want one.
+dos,two,numeral,A1,,Tengo dos perros.,I have two dogs.
+tres,three,numeral,A1,,Son las tres de la tarde.,It's three in the afternoon.
+cuatro,four,numeral,A1,,Hay cuatro sillas.,There are four chairs.
+cinco,five,numeral,A1,,Cinco minutos más.,Five more minutes.
+seis,six,numeral,A1,,Somos seis personas.,We are six people.
+siete,seven,numeral,A1,,Son las siete de la mañana.,It's seven in the morning.
+ocho,eight,numeral,A1,,Trabajo ocho horas al día.,I work eight hours a day.
+nueve,nine,numeral,A1,,Faltan nueve días.,Nine days left.
+diez,ten,numeral,A1,,Cuesta diez dólares.,It costs ten dollars.
+veinte,twenty,numeral,A1,,Tengo veinte años.,I am twenty years old.
+lunes,Monday,noun,A1,masculine,El lunes tengo clase.,On Monday I have class.
+martes,Tuesday,noun,A1,masculine,Nos vemos el martes.,See you on Tuesday.
+miércoles,Wednesday,noun,A1,masculine,El miércoles es mi día libre.,Wednesday is my day off.
+jueves,Thursday,noun,A1,masculine,El jueves tengo una reunión.,On Thursday I have a meeting.
+viernes,Friday,noun,A1,masculine,¡Por fin es viernes!,It's finally Friday!
+sábado,Saturday,noun,A1,masculine,El sábado vamos al cine.,On Saturday we go to the movies.
+domingo,Sunday,noun,A1,masculine,El domingo descanso.,On Sunday I rest.
+rojo,red,adjective,A1,masculine,El carro es rojo.,The car is red.
+azul,blue,adjective,A1,,Mi camisa es azul.,My shirt is blue.
+verde,green,adjective,A1,,Los árboles son verdes.,The trees are green.
+negro,black,adjective,A1,masculine,Llevo zapatos negros.,I'm wearing black shoes.
+blanco,white,adjective,A1,masculine,La pared es blanca.,The wall is white.
+amarillo,yellow,adjective,A1,masculine,El sol es amarillo.,The sun is yellow.
+y,and,conjunction,A1,,Tú y yo somos amigos.,You and I are friends.
+pero,but,conjunction,A1,,"Quiero ir, pero no puedo.","I want to go, but I can't."
+o,or,conjunction,A1,,¿Café o té?,Coffee or tea?
+porque,because,conjunction,A1,,No voy porque estoy enfermo.,I'm not going because I'm sick.
+con,with,preposition,A1,,Voy con mi familia.,I go with my family.
+en,in / on,preposition,A1,,Estoy en la oficina.,I'm in the office.
+de,of / from,preposition,A1,,Soy de México.,I'm from Mexico.
+a,to,preposition,A1,,Voy a la escuela.,I go to school.
+para,for / in order to,preposition,A1,,Esto es para ti.,This is for you.
+por,for / by / through,preposition,A1,,Gracias por todo.,Thanks for everything.
+sin,without,preposition,A1,,Café sin azúcar.,Coffee without sugar.
+qué,what,pronoun,A1,,¿Qué quieres?,What do you want?
+quién,who,pronoun,A1,,¿Quién es ella?,Who is she?
+por qué,why,phrase,A1,,¿Por qué no vienes?,Why aren't you coming?
+todo,all / everything,pronoun,A1,masculine,Lo quiero todo.,I want everything.
+nada,nothing,pronoun,A1,,No quiero nada.,I don't want anything.
+algo,something,pronoun,A1,,¿Quieres algo de comer?,Do you want something to eat?
+bonito,pretty / beautiful,adjective,A2,masculine,El vestido es muy bonito.,The dress is very pretty.
+feo,ugly,adjective,A2,masculine,El edificio es bastante feo.,The building is quite ugly.
+feliz,happy,adjective,A2,,Soy muy feliz contigo.,I am very happy with you.
+triste,sad,adjective,A2,,Estoy triste hoy.,I am sad today.
+enojado,angry,adjective,A2,masculine,Mi padre está enojado conmigo.,My father is angry with me.
+cansado,tired,adjective,A2,masculine,Estoy muy cansado después del trabajo.,I'm very tired after work.
+enfermo,sick,adjective,A2,masculine,El niño está enfermo.,The child is sick.
+preocupado,worried,adjective,A2,masculine,Estoy preocupado por el examen.,I'm worried about the exam.
+nervioso,nervous,adjective,A2,masculine,Estoy nervioso por la entrevista.,I'm nervous about the interview.
+sorprendido,surprised,adjective,A2,masculine,Estoy sorprendido por la noticia.,I'm surprised by the news.
+aburrido,bored / boring,adjective,A2,masculine,La película fue aburrida.,The movie was boring.
+caliente,hot,adjective,A2,,El café está muy caliente.,The coffee is very hot.
+frío,cold,adjective,A2,masculine,Hace mucho frío hoy.,It's very cold today.
+difícil,difficult,adjective,A2,,El examen fue muy difícil.,The exam was very difficult.
+fácil,easy,adjective,A2,,Es fácil de entender.,It's easy to understand.
+rápido,fast,adjective,A2,masculine,El tren es muy rápido.,The train is very fast.
+lento,slow,adjective,A2,masculine,"Habla más lento, por favor.","Speak more slowly, please."
+joven,young,adjective,A2,,Es una mujer joven.,She is a young woman.
+viejo,old,adjective,A2,masculine,El edificio es muy viejo.,The building is very old.
+largo,long,adjective,A2,masculine,El camino es largo.,The road is long.
+corto,short (length),adjective,A2,masculine,El video es muy corto.,The video is very short.
+alto,tall / high,adjective,A2,masculine,El edificio es muy alto.,The building is very tall.
+bajo,short / low,adjective,A2,masculine,El techo es bajo.,The ceiling is low.
+rico,rich / delicious,adjective,A2,masculine,La comida está rica.,The food is delicious.
+pobre,poor,adjective,A2,,Es un barrio pobre.,It's a poor neighborhood.
+barato,cheap,adjective,A2,masculine,Este restaurante es barato.,This restaurant is cheap.
+caro,expensive,adjective,A2,masculine,El hotel es muy caro.,The hotel is very expensive.
+limpio,clean,adjective,A2,masculine,La cocina está limpia.,The kitchen is clean.
+sucio,dirty,adjective,A2,masculine,El piso está sucio.,The floor is dirty.
+abierto,open,adjective,A2,masculine,La tienda está abierta.,The store is open.
+cerrado,closed,adjective,A2,masculine,El banco está cerrado hoy.,The bank is closed today.
+lleno,full,adjective,A2,masculine,El vaso está lleno.,The glass is full.
+vacío,empty,adjective,A2,masculine,La calle está vacía.,The street is empty.
+listo,ready / clever,adjective,A2,masculine,¿Estás listo? Vamos.,Are you ready? Let's go.
+ocupado,busy / occupied,adjective,A2,masculine,"Estoy ocupado ahora, te llamo después.","I'm busy now, I'll call you later."
+importante,important,adjective,A2,,Es una decisión muy importante.,It's a very important decision.
+hermano,brother,noun,A2,masculine,Mi hermano tiene veinte años.,My brother is twenty years old.
+hermana,sister,noun,A2,feminine,Mi hermana vive en Barcelona.,My sister lives in Barcelona.
+hijo,son,noun,A2,masculine,Mi hijo tiene cinco años.,My son is five years old.
+hija,daughter,noun,A2,feminine,Mi hija estudia medicina.,My daughter studies medicine.
+cabeza,head,noun,A2,feminine,Me duele la cabeza.,My head hurts.
+mano,hand,noun,A2,feminine,Dame la mano.,Give me your hand.
+ojo,eye,noun,A2,masculine,Tiene los ojos verdes.,She has green eyes.
+boca,mouth,noun,A2,feminine,Cierra la boca.,Close your mouth.
+corazón,heart,noun,A2,masculine,Mi corazón late rápido.,My heart beats fast.
+cuerpo,body,noun,A2,masculine,El cuerpo necesita descanso.,The body needs rest.
+brazo,arm,noun,A2,masculine,Me duele el brazo.,My arm hurts.
+pierna,leg,noun,A2,feminine,Tengo dolor en la pierna.,I have pain in my leg.
+pie,foot,noun,A2,masculine,Me duele el pie.,My foot hurts.
+espalda,back,noun,A2,feminine,Me duele la espalda.,My back hurts.
+pelo,hair,noun,A2,masculine,Tiene el pelo largo.,She has long hair.
+pan,bread,noun,A2,masculine,Quiero pan con mantequilla.,I want bread with butter.
+carne,meat,noun,A2,feminine,No como carne.,I don't eat meat.
+pollo,chicken,noun,A2,masculine,El pollo está delicioso.,The chicken is delicious.
+pescado,fish (food),noun,A2,masculine,Me gusta el pescado fresco.,I like fresh fish.
+arroz,rice,noun,A2,masculine,El arroz con frijoles es mi favorito.,Rice with beans is my favorite.
+huevo,egg,noun,A2,masculine,Quiero huevos para el desayuno.,I want eggs for breakfast.
+leche,milk,noun,A2,feminine,Tomo leche todas las mañanas.,I drink milk every morning.
+queso,cheese,noun,A2,masculine,Me encanta el queso.,I love cheese.
+fruta,fruit,noun,A2,feminine,La fruta fresca es saludable.,Fresh fruit is healthy.
+verdura,vegetable,noun,A2,feminine,Debes comer más verduras.,You should eat more vegetables.
+cerveza,beer,noun,A2,feminine,¿Quieres una cerveza?,Do you want a beer?
+vino,wine,noun,A2,masculine,"Un vaso de vino tinto, por favor.","A glass of red wine, please."
+azúcar,sugar,noun,A2,masculine,"Sin azúcar, por favor.","Without sugar, please."
+sal,salt,noun,A2,feminine,Pásame la sal.,Pass me the salt.
+desayuno,breakfast,noun,A2,masculine,El desayuno es a las ocho.,Breakfast is at eight.
+almuerzo,lunch,noun,A2,masculine,¿Dónde vamos a almorzar?,Where are we going for lunch?
+cena,dinner,noun,A2,feminine,La cena está lista.,Dinner is ready.
+minuto,minute,noun,A2,masculine,Espera un minuto.,Wait a minute.
+semana,week,noun,A2,feminine,La semana pasada fui al cine.,Last week I went to the movies.
+mes,month,noun,A2,masculine,El próximo mes viajo a España.,Next month I travel to Spain.
+año,year,noun,A2,masculine,El año pasado viajé a España.,Last year I traveled to Spain.
+enero,January,noun,A2,masculine,Enero es el primer mes del año.,January is the first month of the year.
+febrero,February,noun,A2,masculine,Febrero es el mes más corto.,February is the shortest month.
+marzo,March,noun,A2,masculine,"En marzo, empieza la primavera.","In March, spring begins."
+abril,April,noun,A2,masculine,En abril llueve mucho.,In April it rains a lot.
+mayo,May,noun,A2,masculine,Mi cumpleaños es en mayo.,My birthday is in May.
+junio,June,noun,A2,masculine,En junio empieza el verano.,In June summer begins.
+julio,July,noun,A2,masculine,Julio es el mes más caliente.,July is the hottest month.
+agosto,August,noun,A2,masculine,En agosto vamos a la playa.,In August we go to the beach.
+septiembre,September,noun,A2,masculine,En septiembre empieza la escuela.,In September school starts.
+octubre,October,noun,A2,masculine,Octubre es mi mes favorito.,October is my favorite month.
+noviembre,November,noun,A2,masculine,En noviembre hace frío.,In November it gets cold.
+diciembre,December,noun,A2,masculine,En diciembre celebramos Navidad.,In December we celebrate Christmas.
+trabajo,work / job,noun,A2,masculine,Voy al trabajo en metro.,I go to work by subway.
+dinero,money,noun,A2,masculine,No tengo suficiente dinero.,I don't have enough money.
+precio,price,noun,A2,masculine,¿Cuál es el precio?,What is the price?
+calle,street,noun,A2,feminine,La calle está llena de gente.,The street is full of people.
+ciudad,city,noun,A2,feminine,La ciudad es muy grande.,The city is very big.
+país,country,noun,A2,masculine,México es un país hermoso.,Mexico is a beautiful country.
+tienda,store / shop,noun,A2,feminine,La tienda cierra a las nueve.,The store closes at nine.
+restaurante,restaurant,noun,A2,masculine,Vamos a un restaurante italiano.,Let's go to an Italian restaurant.
+escuela,school,noun,A2,feminine,Los niños van a la escuela.,The children go to school.
+banco,bank,noun,A2,masculine,El banco está cerrado hoy.,The bank is closed today.
+museo,museum,noun,A2,masculine,El museo abre a las diez.,The museum opens at ten.
+parque,park,noun,A2,masculine,Vamos al parque a caminar.,Let's go to the park for a walk.
+carro,car,noun,A2,masculine,Mi carro es azul.,My car is blue.
+teléfono,phone,noun,A2,masculine,¿Dónde está mi teléfono?,Where is my phone?
+tarjeta,card,noun,A2,feminine,¿Puedo pagar con tarjeta?,Can I pay by card?
+puerta,door,noun,A2,feminine,"Cierra la puerta, por favor.","Close the door, please."
+ventana,window,noun,A2,feminine,Abre la ventana.,Open the window.
+mesa,table,noun,A2,feminine,La comida está en la mesa.,The food is on the table.
+silla,chair,noun,A2,feminine,Siéntate en la silla.,Sit in the chair.
+cama,bed,noun,A2,feminine,La cama es muy cómoda.,The bed is very comfortable.
+libro,book,noun,A2,masculine,Estoy leyendo un libro.,I'm reading a book.
+ropa,clothes,noun,A2,feminine,Necesito comprar ropa nueva.,I need to buy new clothes.
+zapato,shoe,noun,A2,masculine,Me gustan esos zapatos.,I like those shoes.
+vida,life,noun,A2,feminine,La vida es corta.,Life is short.
+amor,love,noun,A2,masculine,El amor es complicado.,Love is complicated.
+problema,problem,noun,A2,masculine,No hay problema.,No problem.
+fiesta,party,noun,A2,feminine,La fiesta fue increíble.,The party was incredible.
+lugar,place,noun,A2,masculine,Este es un buen lugar para comer.,This is a good place to eat.
+mundo,world,noun,A2,masculine,Quiero ver el mundo.,I want to see the world.
+pregunta,question,noun,A2,feminine,Tengo una pregunta.,I have a question.
+respuesta,answer,noun,A2,feminine,No sé la respuesta.,I don't know the answer.
+historia,history / story,noun,A2,feminine,Me gusta la historia de España.,I like the history of Spain.
+idea,idea,noun,A2,feminine,Tengo una buena idea.,I have a good idea.
+palabra,word,noun,A2,feminine,¿Cuál es la palabra en español?,What is the word in Spanish?
+foto,photo,noun,A2,feminine,¿Me tomas una foto?,Can you take a photo of me?
+perro,dog,noun,A2,masculine,Tengo un perro grande.,I have a big dog.
+gato,cat,noun,A2,masculine,El gato duerme todo el día.,The cat sleeps all day.
+flor,flower,noun,A2,feminine,Las flores son hermosas.,The flowers are beautiful.
+sol,sun,noun,A2,masculine,Hace mucho sol hoy.,It's very sunny today.
+lluvia,rain,noun,A2,feminine,Me gusta la lluvia.,I like the rain.
+mar,sea,noun,A2,masculine,El mar está tranquilo.,The sea is calm.
+montaña,mountain,noun,A2,feminine,La montaña es muy alta.,The mountain is very tall.
+árbol,tree,noun,A2,masculine,Hay un árbol grande en el jardín.,There is a big tree in the garden.
+música,music,noun,A2,feminine,La música latina me hace bailar.,Latin music makes me dance.
+canción,song,noun,A2,feminine,Esta canción es mi favorita.,This song is my favorite.
+cien,one hundred,numeral,A2,,Hay cien personas aquí.,There are one hundred people here.
+mil,one thousand,numeral,A2,,Cuesta mil pesos.,It costs one thousand pesos.
+pagar,to pay,verb,A2,,¿Puedo pagar con tarjeta?,Can I pay by card?
+vender,to sell,verb,A2,,Quiere vender su carro.,He wants to sell his car.
+trabajar,to work,verb,A2,,Trabajo de lunes a viernes.,I work Monday to Friday.
+estudiar,to study,verb,A2,,Estudio español todos los días.,I study Spanish every day.
+pensar,to think,verb,A2,,¿Qué piensas de esto?,What do you think about this?
+creer,to believe,verb,A2,,No creo que sea verdad.,I don't believe it's true.
+sentir,to feel,verb,A2,,¿Cómo te sientes?,How do you feel?
+conocer,to know (people/places),verb,A2,,¿Conoces a mi hermana?,Do you know my sister?
+encontrar,to find,verb,A2,,No puedo encontrar mis llaves.,I can't find my keys.
+dormir,to sleep,verb,A2,,Necesito dormir más.,I need to sleep more.
+salir,to leave / to go out,verb,A2,,Salimos a las ocho.,We leave at eight.
+llegar,to arrive,verb,A2,,¿A qué hora llegas?,What time do you arrive?
+escribir,to write,verb,A2,,Voy a escribir un correo.,I'm going to write an email.
+leer,to read,verb,A2,,Me gusta leer por la noche.,I like to read at night.
+jugar,to play,verb,A2,,Los niños juegan en el parque.,The children play in the park.
+caminar,to walk,verb,A2,,Me gusta caminar por la playa.,I like to walk on the beach.
+correr,to run,verb,A2,,Corro todas las mañanas.,I run every morning.
+abrir,to open,verb,A2,,Abre la puerta.,Open the door.
+cerrar,to close,verb,A2,,Cierra los ojos.,Close your eyes.
+esperar,to wait / to hope,verb,A2,,Espérame un momento.,Wait for me a moment.
+entender,to understand,verb,A2,,No entiendo la pregunta.,I don't understand the question.
+aprender,to learn,verb,A2,,Quiero aprender a cocinar.,I want to learn to cook.
+enseñar,to teach,verb,A2,,Ella enseña matemáticas.,She teaches math.
+cocinar,to cook,verb,A2,,Mi madre cocina muy bien.,My mother cooks very well.
+ayudar,to help,verb,A2,,¿Me puedes ayudar?,Can you help me?
+pedir,to ask for / to order,verb,A2,,Voy a pedir la cuenta.,I'm going to ask for the check.
+empezar,to begin / to start,verb,A2,,La clase empieza a las diez.,The class starts at ten.
+terminar,to finish,verb,A2,,Ya terminé mi tarea.,I already finished my homework.
+usar,to use,verb,A2,,¿Puedo usar tu teléfono?,Can I use your phone?
+poner,to put / to place,verb,A2,,Pon el libro en la mesa.,Put the book on the table.
+tomar,to take / to drink,verb,A2,,Voy a tomar un café.,I'm going to have a coffee.
+dejar,to leave / to let,verb,A2,,Déjame pensar.,Let me think.
+pasar,to pass / to happen,verb,A2,,¿Qué pasó?,What happened?
+cambiar,to change,verb,A2,,Quiero cambiar mi reserva.,I want to change my reservation.
+quedar,to remain / to meet up,verb,A2,,¿Quedamos a las tres?,Shall we meet at three?
+mirar,to look at / to watch,verb,A2,,Mira esa vista.,Look at that view.
+escuchar,to listen,verb,A2,,Me gusta escuchar música.,I like to listen to music.
+bailar,to dance,verb,A2,,Vamos a bailar toda la noche.,Let's dance all night.
+cantar,to sing,verb,A2,,Me encanta cantar en la ducha.,I love to sing in the shower.
+deber,must / should,verb,A2,,Debes estudiar más.,You should study more.
+traer,to bring,verb,A2,,Tráeme un vaso de agua.,Bring me a glass of water.
+volver,to return / to come back,verb,A2,,Vuelvo mañana.,I'll come back tomorrow.
+ayer,yesterday,adverb,A2,,Ayer fui al cine.,Yesterday I went to the movies.
+todavía,still / yet,adverb,A2,,Todavía no he comido.,I haven't eaten yet.
+ya,already,adverb,A2,,Ya llegué.,I already arrived.
+después,after / later,adverb,A2,,Te llamo después.,I'll call you later.
+antes,before,adverb,A2,,Llega antes de las cinco.,Arrive before five.
+juntos,together,adverb,A2,,Vamos juntos a la fiesta.,Let's go to the party together.
+solo,alone / only,adverb,A2,,Vivo solo.,I live alone.
+temprano,early,adverb,A2,,Llegué temprano.,I arrived early.
+tarde,late / afternoon,adverb,A2,,Llegué tarde al trabajo.,I arrived late to work.
+cerca,near,adverb,A2,,El banco está cerca.,The bank is nearby.
+lejos,far,adverb,A2,,El aeropuerto está lejos.,The airport is far away.
+arriba,up / above,adverb,A2,,Mi habitación está arriba.,My room is upstairs.
+abajo,down / below,adverb,A2,,El garaje está abajo.,The garage is downstairs.
+afuera,outside,adverb,A2,,Hace calor afuera.,It's hot outside.
+adentro,inside,adverb,A2,,Vamos adentro.,Let's go inside.
+casi,almost,adverb,A2,,Ya casi llegamos.,We're almost there.
+tal vez,maybe / perhaps,phrase,A2,,Tal vez vaya mañana.,Maybe I'll go tomorrow.
+entonces,so / then,adverb,A2,,"No había taxi, entonces caminamos.","There was no taxi, so we walked."
+entre,between / among,preposition,A2,,El banco está entre la tienda y el café.,The bank is between the store and the café.
+sobre,on / about / over,preposition,A2,,El libro está sobre la mesa.,The book is on the table.
+hasta,until / up to,preposition,A2,,Trabajo hasta las seis.,I work until six.
+desde,from / since,preposition,A2,,Vivo aquí desde 2020.,I've lived here since 2020.
+hacia,toward,preposition,A2,,Caminamos hacia el norte.,We walked toward the north.
+durante,during,preposition,A2,,No hablé durante la reunión.,I didn't speak during the meeting.
+si,if,conjunction,A2,,"Si llueve, me quedo en casa.","If it rains, I stay home."
+cuando,when,conjunction,A2,,"Cuando llego a casa, descanso.","When I get home, I rest."
+mientras,while,conjunction,A2,,Escucho música mientras trabajo.,I listen to music while I work.
+que,that / which,conjunction,A2,,Creo que tienes razón.,I think that you're right.
+aunque,although / even though,conjunction,A2,,Voy a salir aunque llueva.,I'm going out even though it rains.
+ni,neither / nor,conjunction,A2,,No tengo ni tiempo ni dinero.,I have neither time nor money.
+verdad,truth,noun,A2,feminine,Dime la verdad.,Tell me the truth.
+hotel,hotel,noun,A2,masculine,Reservé un hotel cerca de la playa.,I booked a hotel near the beach.
+playa,beach,noun,A2,feminine,La playa es hermosa al atardecer.,The beach is beautiful at sunset.
+cuenta,bill / check / account,noun,A2,feminine,"La cuenta, por favor.","The check, please."
+taxi,taxi,noun,A2,masculine,Tomamos un taxi al aeropuerto.,We took a taxi to the airport.
+letra,lyrics / letter,noun,B1,feminine,No entiendo la letra de esta canción.,I don't understand the lyrics of this song.
+ritmo,rhythm,noun,B1,masculine,El ritmo de reggaetón es contagioso.,The reggaeton rhythm is catchy.
+voz,voice,noun,B1,feminine,Shakira tiene una voz increíble.,Shakira has an incredible voice.
+escenario,stage,noun,B1,masculine,El artista subió al escenario.,The artist went up on stage.
+concierto,concert,noun,B1,masculine,Fui al concierto de Bad Bunny.,I went to the Bad Bunny concert.
+disco,album / record,noun,B1,masculine,Su nuevo disco salió ayer.,His new album came out yesterday.
+estrella,star,noun,B1,feminine,Es una estrella de la música.,She is a music star.
+reggaetón,reggaeton,noun,B1,masculine,El reggaetón es popular en todo el mundo.,Reggaeton is popular worldwide.
+tema,track / song (colloquial),noun,B1,masculine,Ese tema tiene un ritmo increíble.,That track has an incredible rhythm.
+éxito,hit / success,noun,B1,masculine,Esa canción fue un éxito mundial.,That song was a worldwide hit.
+gira,tour,noun,B1,feminine,La gira empieza en septiembre.,The tour starts in September.
+verso,verse,noun,B1,masculine,El verso de Bad Bunny es muy pegajoso.,Bad Bunny's verse is very catchy.
+coro,chorus,noun,B1,masculine,El coro de esta canción se queda en la cabeza.,The chorus of this song gets stuck in your head.
+pista,track / beat,noun,B1,feminine,La pista tiene un bajo muy fuerte.,The beat has a very strong bass.
+sueño,dream / sleep,noun,B1,masculine,Tengo un sueño muy grande.,I have a very big dream.
+fuego,fire,noun,B1,masculine,El fuego ilumina la noche.,The fire lights up the night.
+locura,madness / craziness,noun,B1,feminine,Esto es una locura total.,This is total madness.
+soledad,loneliness / solitude,noun,B1,feminine,La soledad a veces duele.,Loneliness sometimes hurts.
+mentira,lie,noun,B1,feminine,Todo lo que dijo fue una mentira.,Everything he said was a lie.
+dolor,pain,noun,B1,masculine,El dolor en mi pecho no se va.,The pain in my chest won't go away.
+recuerdo,memory / souvenir,noun,B1,masculine,Tengo buenos recuerdos de ese viaje.,I have good memories of that trip.
+beso,kiss,noun,B1,masculine,Me dio un beso en la mejilla.,She gave me a kiss on the cheek.
+abrazo,hug,noun,B1,masculine,Necesito un abrazo.,I need a hug.
+alma,soul,noun,B1,feminine,Lo siento en el alma.,I feel it in my soul.
+destino,destiny / destination,noun,B1,masculine,El destino nos unió.,Destiny brought us together.
+libertad,freedom,noun,B1,feminine,La libertad es un derecho.,Freedom is a right.
+fuerza,strength / force,noun,B1,feminine,Necesitas fuerza para seguir.,You need strength to keep going.
+miedo,fear,noun,B1,masculine,Tengo miedo de la oscuridad.,I'm afraid of the dark.
+esperanza,hope,noun,B1,feminine,La esperanza es lo último que se pierde.,Hope is the last thing you lose.
+piel,skin,noun,B1,feminine,Tu piel es suave.,Your skin is soft.
+labio,lip,noun,B1,masculine,Sus labios son rojos.,Her lips are red.
+cariño,darling / affection,noun,B1,masculine,"Cariño, te necesito.","Darling, I need you."
+traición,betrayal,noun,B1,feminine,La traición duele más que la mentira.,Betrayal hurts more than lies.
+celos,jealousy,noun,B1,masculine,Los celos destruyen relaciones.,Jealousy destroys relationships.
+orgullo,pride,noun,B1,masculine,Siento mucho orgullo por ti.,I feel a lot of pride for you.
+novio,boyfriend,noun,B1,masculine,Mi novio es muy cariñoso.,My boyfriend is very affectionate.
+novia,girlfriend,noun,B1,feminine,Su novia canta muy bonito.,His girlfriend sings very beautifully.
+deseo,desire,noun,B1,masculine,Siento un gran deseo de verte.,I feel a great desire to see you.
+pasión,passion,noun,B1,feminine,La pasión se siente en su música.,You can feel the passion in his music.
+rabia,rage,noun,B1,feminine,Siento rabia por lo que pasó.,I feel rage about what happened.
+venganza,revenge,noun,B1,feminine,La venganza no es la solución.,Revenge is not the solution.
+extrañar,to miss (someone),verb,B1,,Te extraño mucho.,I miss you a lot.
+olvidar,to forget,verb,B1,,No puedo olvidarte.,I can't forget you.
+recordar,to remember,verb,B1,,¿Recuerdas esa noche?,Do you remember that night?
+llorar,to cry,verb,B1,,No quiero llorar más.,I don't want to cry anymore.
+gritar,to shout / to scream,verb,B1,,No me grites.,Don't shout at me.
+pelear,to fight,verb,B1,,No quiero pelear contigo.,I don't want to fight with you.
+perder,to lose,verb,B1,,No quiero perder esta oportunidad.,I don't want to lose this opportunity.
+ganar,to win / to earn,verb,B1,,Quiero ganar el premio.,I want to win the prize.
+soñar,to dream,verb,B1,,Soñé contigo anoche.,I dreamed about you last night.
+mentir,to lie,verb,B1,,No me mientas.,Don't lie to me.
+confiar,to trust,verb,B1,,Confío en ti.,I trust you.
+amar,to love,verb,B1,,Te amo con todo mi corazón.,I love you with all my heart.
+odiar,to hate,verb,B1,,Odio las mentiras.,I hate lies.
+besar,to kiss,verb,B1,,La besó bajo la lluvia.,He kissed her in the rain.
+abrazar,to hug,verb,B1,,Abrázame fuerte.,Hug me tight.
+romper,to break,verb,B1,,Se le rompió el corazón.,His heart broke.
+brillar,to shine,verb,B1,,Las estrellas brillan en la noche.,The stars shine at night.
+quemar,to burn,verb,B1,,El sol quema hoy.,The sun burns today.
+perrear,to dance reggaeton,verb,B1,,Vamos a perrear toda la noche.,Let's dance reggaeton all night.
+celoso,jealous,adjective,B1,masculine,Estoy celoso de él.,I'm jealous of him.
+borracho,drunk,adjective,B1,masculine,"Está borracho, no le hagas caso.","He's drunk, don't pay attention to him."
+loco,crazy,adjective,B1,masculine,Estoy loco por ti.,I'm crazy about you.
+hermoso,beautiful,adjective,B1,masculine,El paisaje es hermoso.,The landscape is beautiful.
+increíble,incredible,adjective,B1,,Fue una experiencia increíble.,It was an incredible experience.
+profundo,deep,adjective,B1,masculine,El río es muy profundo.,The river is very deep.
+oscuro,dark,adjective,B1,masculine,El cuarto está oscuro.,The room is dark.
+dulce,sweet,adjective,B1,,El postre es muy dulce.,The dessert is very sweet.
+amargo,bitter,adjective,B1,masculine,El café está amargo.,The coffee is bitter.
+gobierno,government,noun,B1,masculine,El gobierno anunció nuevas medidas.,The government announced new measures.
+presidente,president,noun,B1,masculine,El presidente habló en la televisión.,The president spoke on television.
+elección,election,noun,B1,feminine,Las elecciones son el próximo mes.,The elections are next month.
+ley,law,noun,B1,feminine,Aprobaron una nueva ley.,They approved a new law.
+economía,economy,noun,B1,feminine,La economía está creciendo.,The economy is growing.
+guerra,war,noun,B1,feminine,La guerra destruyó la ciudad.,The war destroyed the city.
+paz,peace,noun,B1,feminine,Todos queremos la paz.,We all want peace.
+noticia,news (item),noun,B1,feminine,¿Viste las noticias de hoy?,Did you see today's news?
+sociedad,society,noun,B1,feminine,La sociedad necesita cambios.,Society needs changes.
+derecho,right / law,noun,B1,masculine,Todos tienen derecho a la educación.,Everyone has the right to education.
+crisis,crisis,noun,B1,feminine,El país enfrenta una crisis económica.,The country faces an economic crisis.
+seguridad,security / safety,noun,B1,feminine,La seguridad es una prioridad.,Security is a priority.
+cambio,change,noun,B1,masculine,El cambio climático es un problema global.,Climate change is a global problem.
+empresa,company / business,noun,B1,feminine,Trabaja en una empresa de tecnología.,She works at a tech company.
+salud,health,noun,B1,feminine,La salud es lo más importante.,Health is the most important thing.
+educación,education,noun,B1,feminine,La educación abre muchas puertas.,Education opens many doors.
+líder,leader,noun,B1,masculine,El líder del partido habló en la plaza.,The party leader spoke in the plaza.
+partido,political party / match,noun,B1,masculine,El partido ganó las elecciones.,The party won the elections.
+aeropuerto,airport,noun,B1,masculine,El aeropuerto está lejos del centro.,The airport is far from the center.
+vuelo,flight,noun,B1,masculine,Mi vuelo sale a las tres.,My flight leaves at three.
+equipaje,luggage / baggage,noun,B1,masculine,¿Dónde puedo recoger mi equipaje?,Where can I pick up my luggage?
+pasaporte,passport,noun,B1,masculine,Necesitas tu pasaporte para viajar.,You need your passport to travel.
+habitación,room,noun,B1,feminine,La habitación tiene vista al mar.,The room has an ocean view.
+reserva,reservation,noun,B1,feminine,Tengo una reserva para dos personas.,I have a reservation for two people.
+mapa,map,noun,B1,masculine,¿Tienes un mapa de la ciudad?,Do you have a map of the city?
+estación,station / season,noun,B1,feminine,La estación de tren está cerca.,The train station is nearby.
+boleto,ticket,noun,B1,masculine,Compré el boleto por internet.,I bought the ticket online.
+maleta,suitcase,noun,B1,feminine,Mi maleta es muy pesada.,My suitcase is very heavy.
+turista,tourist,noun,B1,,Hay muchos turistas en verano.,There are many tourists in summer.
+frontera,border,noun,B1,feminine,Cruzamos la frontera a pie.,We crossed the border on foot.
+propina,tip (gratuity),noun,B1,feminine,Dejé una buena propina.,I left a good tip.
+menú,menu,noun,B1,masculine,"¿Me trae el menú, por favor?","Can you bring me the menu, please?"
+mesero,waiter,noun,B1,masculine,El mesero fue muy amable.,The waiter was very kind.
+esquina,corner,noun,B1,feminine,Hay una farmacia en la esquina.,There's a pharmacy on the corner.
+iglesia,church,noun,B1,feminine,La iglesia está en la plaza principal.,The church is in the main plaza.
+izquierda,left,noun,B1,feminine,Gira a la izquierda en la esquina.,Turn left at the corner.
+derecha,right (direction),noun,B1,feminine,El banco está a la derecha.,The bank is on the right.
+guía,guide,noun,B1,masculine,El guía nos llevó al museo.,The guide took us to the museum.
+tren,train,noun,B1,masculine,El tren sale a las diez.,The train leaves at ten.
+autobús,bus,noun,B1,masculine,El autobús tarda una hora.,The bus takes one hour.
+metro,subway,noun,B1,masculine,El metro es la forma más rápida.,The subway is the fastest way.
+farmacia,pharmacy,noun,B1,feminine,La farmacia está en la esquina.,The pharmacy is on the corner.
+hospital,hospital,noun,B1,masculine,El hospital está cerca de aquí.,The hospital is near here.
+emergencia,emergency,noun,B1,feminine,Llama al número de emergencia.,Call the emergency number.
+policía,police,noun,B1,feminine,La policía llegó rápido.,The police arrived quickly.
+médico,doctor,noun,B1,masculine,Necesito ver a un médico.,I need to see a doctor.
+efectivo,cash,noun,B1,masculine,"Solo aceptan efectivo, no tarjeta.","They only accept cash, not card."
+clima,climate / weather,noun,B1,masculine,El clima aquí es tropical.,The climate here is tropical.
+tipo,guy / type,noun,B1,masculine,Ese tipo es muy gracioso.,That guy is very funny.
+rato,a while,noun,B1,masculine,"Espera un rato, ya vengo.","Wait a while, I'll be right back."
+viajar,to travel,verb,B1,,Me encanta viajar por Latinoamérica.,I love to travel around Latin America.
+reservar,to reserve / to book,verb,B1,,Quiero reservar una mesa para cuatro.,I want to book a table for four.
+recomendar,to recommend,verb,B1,,¿Me recomiendas un buen restaurante?,Can you recommend a good restaurant?
+quedarse,to stay,verb,B1,,Nos quedamos tres noches en el hotel.,We stayed three nights at the hotel.
+perderse,to get lost,verb,B1,,Me perdí en el centro de la ciudad.,I got lost in the city center.
+preguntar,to ask (a question),verb,B1,,Le pregunté al mesero por el menú.,I asked the waiter for the menu.
+intentar,to try / to attempt,verb,B1,,Voy a intentar hablar solo en español.,I'm going to try to speak only in Spanish.
+lograr,to achieve / to manage,verb,B1,,Logré terminar el proyecto a tiempo.,I managed to finish the project on time.
+parecer,to seem / to appear,verb,B1,,Parece que va a llover.,It seems like it's going to rain.
+seguir,to follow / to continue,verb,B1,,Sigue recto y luego gira a la derecha.,Keep going straight and then turn right.
+explicar,to explain,verb,B1,,¿Me puedes explicar cómo llegar?,Can you explain how to get there?
+decidir,to decide,verb,B1,,Todavía no he decidido qué hacer.,I still haven't decided what to do.
+ofrecer,to offer,verb,B1,,Me ofrecieron un buen precio.,They offered me a good price.
+cumplir,to fulfill / to turn (age),verb,B1,,Mañana cumplo treinta años.,Tomorrow I turn thirty.
+permitir,to allow / to permit,verb,B1,,No permiten fumar aquí.,They don't allow smoking here.
+celebrar,to celebrate,verb,B1,,Vamos a celebrar tu cumpleaños.,Let's celebrate your birthday.
+disfrutar,to enjoy,verb,B1,,Disfruta cada momento.,Enjoy every moment.
+descubrir,to discover,verb,B1,,Descubrimos un restaurante increíble.,We discovered an incredible restaurant.
+compartir,to share,verb,B1,,Quiero compartir esto contigo.,I want to share this with you.
+mejorar,to improve,verb,B1,,Quiero mejorar mi español.,I want to improve my Spanish.
+peligroso,dangerous,adjective,B1,masculine,Esa zona es peligrosa de noche.,That area is dangerous at night.
+seguro,safe / sure,adjective,B1,masculine,¿Estás seguro de eso?,Are you sure about that?
+extranjero,foreign / foreigner,adjective,B1,masculine,Hay muchos turistas extranjeros.,There are many foreign tourists.
+disponible,available,adjective,B1,,¿Hay habitaciones disponibles?,Are there rooms available?
+gratis,free (no cost),adjective,B1,,La entrada al museo es gratis.,Admission to the museum is free.
+posible,possible,adjective,B1,,¿Es posible cambiar la fecha?,Is it possible to change the date?
+siguiente,next / following,adjective,B1,,El siguiente vuelo sale a las cinco.,The next flight leaves at five.
+anterior,previous,adjective,B1,,El gobierno anterior no hizo nada.,The previous government did nothing.
+propio,own,adjective,B1,masculine,Tengo mi propio negocio.,I have my own business.
+pesado,heavy,adjective,B1,masculine,La maleta está pesada.,The suitcase is heavy.
+ligero,light (weight),adjective,B1,masculine,Lleva ropa ligera.,Wear light clothing.
+genial,great / cool,adjective,B1,,¡Qué genial! Me encanta.,How cool! I love it.
+medio ambiente,environment,phrase,B1,,Hay que cuidar el medio ambiente.,We need to take care of the environment.
+sin embargo,however / nevertheless,phrase,B1,,"Es caro. Sin embargo, vale la pena.","It's expensive. However, it's worth it."
+en realidad,actually / in reality,phrase,B1,,"En realidad, no es tan difícil.","Actually, it's not that difficult."
+de repente,suddenly,phrase,B1,,De repente empezó a llover.,Suddenly it started to rain.
+a veces,sometimes,phrase,B1,,A veces me siento solo.,Sometimes I feel lonely.
+a través de,through / across,phrase,B1,,Caminamos a través del parque.,We walked through the park.
+por supuesto,of course,phrase,B1,,Por supuesto que puedes venir.,Of course you can come.
+en vez de,instead of,phrase,B1,,"En vez de quejarme, voy a actuar.","Instead of complaining, I'm going to act."
+o sea,like / I mean,phrase,B1,,"O sea, no es lo que yo esperaba.","I mean, it's not what I expected."
+pues,well / so,adverb,B1,,"Pues, no sé qué decirte.","Well, I don't know what to tell you."
+además,besides / moreover,adverb,B1,,"Además, necesitamos más tiempo.","Besides, we need more time."
+bastante,quite / enough,adverb,B1,,Es bastante lejos de aquí.,It's quite far from here.
+según,according to,preposition,B1,,"Según las noticias, va a nevar.","According to the news, it's going to snow."
