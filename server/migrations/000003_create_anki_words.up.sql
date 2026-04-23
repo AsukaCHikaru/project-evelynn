@@ -7,5 +7,6 @@ CREATE TABLE anki_words (
   en_translation VARCHAR NOT NULL,
   example_sentence VARCHAR,
   en_example_sentence VARCHAR,
-  created_at TIMESTAMP DEFAULT NOW()
+  created_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE (word, part_of_speech)
 );
