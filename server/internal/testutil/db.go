@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"path/filepath"
 	"runtime"
+	"strings"
 
 	"github.com/golang-migrate/migrate/v4"
 	migratepg "github.com/golang-migrate/migrate/v4/database/postgres"
@@ -62,6 +63,42 @@ func MigrateTestDB(conn *sql.DB) error {
 	err = m.Up()
 	if err != nil && !errors.Is(err, migrate.ErrNoChange) {
 		return fmt.Errorf("failed to run migrations: %w", err)
+	}
+
+	return nil
+}
+
+func TruncateTestDB(conn *sql.DB) error {
+	rows, err := conn.Query(`
+		SELECT table_name FROM information_schema.tables
+		WHERE table_schema = 'public'
+		AND table_name != 'schema_migrations'
+	`)
+	if err != nil {
+		return fmt.Errorf("failed to query table names: %w", err)
+	}
+	defer rows.Close()
+
+	var tableList []string
+	for rows.Next() {
+		var tableName string
+		if err := rows.Scan(&tableName); err != nil {
+			return fmt.Errorf("failed to scan table name: %w", err)
+		}
+		tableList = append(tableList, fmt.Sprintf(`"%s"`, tableName))
+	}
+	if err := rows.Err(); err != nil {
+		return fmt.Errorf("error iterating over table names: %w", err)
+	}
+
+	if len(tableList) == 0 {
+		return nil
+	}
+
+	sql := fmt.Sprintf("TRUNCATE TABLE %s RESTART IDENTITY CASCADE", strings.Join(tableList, ", "))
+	_, err = conn.Exec(sql)
+	if err != nil {
+		return fmt.Errorf("failed to truncate tables: %w", err)
 	}
 
 	return nil
