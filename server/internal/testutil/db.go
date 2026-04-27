@@ -21,6 +21,7 @@ func BootTestDB() (*sql.DB, func(), error) {
 
 	postgresContainer, err := postgres.Run(ctx,
 		"postgres:17-alpine",
+		postgres.BasicWaitStrategies(),
 	)
 
 	if err != nil {
@@ -31,7 +32,7 @@ func BootTestDB() (*sql.DB, func(), error) {
 		postgresContainer.Terminate(ctx)
 	}
 
-	connStr, err := postgresContainer.ConnectionString(ctx)
+	connStr, err := postgresContainer.ConnectionString(ctx, "sslmode=disable")
 	if err != nil {
 		return nil, terminate, fmt.Errorf("failed to get connection string: %w", err)
 	}
@@ -58,7 +59,6 @@ func MigrateTestDB(conn *sql.DB) error {
 	if err != nil {
 		return fmt.Errorf("failed to create migrate instance: %w", err)
 	}
-	defer m.Close()
 
 	err = m.Up()
 	if err != nil && !errors.Is(err, migrate.ErrNoChange) {
