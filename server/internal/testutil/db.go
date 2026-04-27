@@ -10,13 +10,13 @@ import (
 	"strings"
 
 	"github.com/golang-migrate/migrate/v4"
-	migratepg "github.com/golang-migrate/migrate/v4/database/postgres"
+	_ "github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/testcontainers/testcontainers-go/modules/postgres"
 )
 
-func BootTestDB() (*sql.DB, func(), error) {
+func BootTestDB() (*sql.DB, func(), string, error) {
 	ctx := context.Background()
 
 	postgresContainer, err := postgres.Run(ctx,
@@ -25,7 +25,7 @@ func BootTestDB() (*sql.DB, func(), error) {
 	)
 
 	if err != nil {
-		return nil, nil, fmt.Errorf("failed to start container: %w", err)
+		return nil, nil, "", fmt.Errorf("failed to start container: %w", err)
 	}
 
 	terminate := func() {
@@ -34,31 +34,28 @@ func BootTestDB() (*sql.DB, func(), error) {
 
 	connStr, err := postgresContainer.ConnectionString(ctx, "sslmode=disable")
 	if err != nil {
-		return nil, terminate, fmt.Errorf("failed to get connection string: %w", err)
+		return nil, terminate, "", fmt.Errorf("failed to get connection string: %w", err)
 	}
 	conn, err := sql.Open("pgx", connStr)
 	if err != nil {
-		return nil, terminate, fmt.Errorf("failed to open database connection: %w", err)
+		return nil, terminate, connStr, fmt.Errorf("failed to open database connection: %w", err)
 	}
 	err = conn.Ping()
 	if err != nil {
-		return nil, terminate, fmt.Errorf("failed to ping database: %w", err)
+		return nil, terminate, connStr, fmt.Errorf("failed to ping database: %w", err)
 	}
 
-	return conn, terminate, nil
+	return conn, terminate, connStr, nil
 }
 
-func MigrateTestDB(conn *sql.DB) error {
+func MigrateTestDB(connStr string) error {
 	_, filename, _, _ := runtime.Caller(0)
 	migrationFilePath := filepath.Join(filepath.Dir(filename), "../../migrations")
-	driver, err := migratepg.WithInstance(conn, &migratepg.Config{})
-	if err != nil {
-		return fmt.Errorf("failed to create migrate driver: %w", err)
-	}
-	m, err := migrate.NewWithDatabaseInstance("file://"+migrationFilePath, "postgres", driver)
+	m, err := migrate.New("file://"+migrationFilePath, connStr)
 	if err != nil {
 		return fmt.Errorf("failed to create migrate instance: %w", err)
 	}
+	defer m.Close()
 
 	err = m.Up()
 	if err != nil && !errors.Is(err, migrate.ErrNoChange) {

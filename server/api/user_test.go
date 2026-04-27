@@ -13,12 +13,12 @@ import (
 )
 
 func TestCreateUser_HappyPath(t *testing.T) {
-	conn, terminate, err := testutil.BootTestDB()
+	conn, terminate, connStr, err := testutil.BootTestDB()
 	if err != nil {
 		t.Fatalf("Failed to boot test db: %v", err)
 	}
 	defer terminate()
-	err = testutil.MigrateTestDB(conn)
+	err = testutil.MigrateTestDB(connStr)
 	if err != nil {
 		t.Fatalf("Failed to migrate test db: %v", err)
 	}
