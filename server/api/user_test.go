@@ -10,18 +10,15 @@ import (
 	"github.com/asukachikaru/project-evelynn/server/api"
 	"github.com/asukachikaru/project-evelynn/server/db"
 	"github.com/asukachikaru/project-evelynn/server/internal/testutil"
+	"github.com/stretchr/testify/require"
 )
 
 func TestCreateUser_HappyPath(t *testing.T) {
 	conn, terminate, connStr, err := testutil.BootTestDB()
-	if err != nil {
-		t.Fatalf("Failed to boot test db: %v", err)
-	}
+	require.NoError(t, err, "Failed to boot test db")
 	defer terminate()
 	err = testutil.MigrateTestDB(connStr)
-	if err != nil {
-		t.Fatalf("Failed to migrate test db: %v", err)
-	}
+	require.NoError(t, err, "Failed to migrate test db")
 
 	q := db.New(conn)
 	server := api.NewServer(q)
@@ -34,35 +31,21 @@ func TestCreateUser_HappyPath(t *testing.T) {
 
 	server.CreateUser(w, req)
 
-	if w.Code != http.StatusOK {
-		t.Fatalf("Expected status code 200, got %d", w.Code)
-	}
+	require.Equal(t, http.StatusOK, w.Code, "Expected status code 200")
 
 	var resp struct {
 		Data  *api.UserProfileResponse `json:"data"`
 		Error *api.APIError            `json:"error"`
 	}
 
-	if err := json.NewDecoder(w.Body).Decode(&resp); err != nil {
-		t.Fatalf("Failed to decode response body: %v", err)
-	}
-
-	if resp.Data.DisplayName != "test" {
-		t.Fatalf("Expected display name 'test', got '%s'", resp.Data.DisplayName)
-	}
-	if resp.Data.DailyWordLimit != 10 {
-		t.Fatalf("Expected daily word limit 10, got %d", resp.Data.DailyWordLimit)
-	}
-	if resp.Error != nil {
-		t.Fatalf("Expected no error, got %v", resp.Error)
-	}
+	err = json.NewDecoder(w.Body).Decode(&resp)
+	require.NoError(t, err)
+	require.Equal(t, "test", resp.Data.DisplayName)
+	require.Equal(t, int32(10), resp.Data.DailyWordLimit)
+	require.Nil(t, resp.Error)
 
 	var name string
 	err = conn.QueryRow("SELECT display_name FROM users WHERE display_name = $1", "test").Scan(&name)
-	if err != nil {
-		t.Fatalf("Failed to query db: %v", err)
-	}
-	if name != "test" {
-		t.Fatalf("Expected display name 'test', got '%s'", name)
-	}
+	require.NoError(t, err)
+	require.Equal(t, "test", name)
 }
