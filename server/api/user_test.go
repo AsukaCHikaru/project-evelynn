@@ -49,3 +49,28 @@ func TestCreateUser_HappyPath(t *testing.T) {
 	require.NoError(t, err)
 	require.Equal(t, "test", name)
 }
+
+func TestCreateUser_MissingDisplayName(t *testing.T) {
+	conn, terminate, connStr, err := testutil.BootTestDB()
+	require.NoError(t, err, "Failed to boot test db")
+	defer terminate()
+	err = testutil.MigrateTestDB(connStr)
+	require.NoError(t, err, "Failed to migrate test db")
+
+	q := db.New(conn)
+	server := api.NewServer(q)
+
+	payload := map[string]string{"display_name": ""}
+	b, _ := json.Marshal(payload)
+	w := httptest.NewRecorder()
+	req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(b))
+	req.Header.Set("Content-Type", "application/json")
+
+	server.CreateUser(w, req)
+	require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
+
+	var count int
+	err = conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
+	require.NoError(t, err)
+	require.Equal(t, 0, count)
+}
