@@ -2,9 +2,11 @@ package api_test
 
 import (
 	"bytes"
+	"database/sql"
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 
 	"github.com/asukachikaru/project-evelynn/server/api"
@@ -13,16 +15,28 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestCreateUser_HappyPath(t *testing.T) {
-	conn, terminate, connStr, err := testutil.BootTestDB()
-	require.NoError(t, err, "Failed to boot test db")
-	defer terminate()
-	err = testutil.MigrateTestDB(connStr)
-	require.NoError(t, err, "Failed to migrate test db")
+var (
+	conn      *sql.DB
+	terminate func()
+	server    *api.Server
+	connStr   string
+)
+
+func TestMain(m *testing.M) {
+	conn, terminate, connStr, _ = testutil.BootTestDB()
+	testutil.MigrateTestDB(connStr)
 
 	q := db.New(conn)
-	server := api.NewServer(q)
+	server = api.NewServer(q)
 
+	code := m.Run()
+
+	terminate()
+	os.Exit(code)
+}
+
+func TestCreateUser_HappyPath(t *testing.T) {
+	testutil.TruncateTestDB(conn)
 	payload := map[string]string{"display_name": "test"}
 	b, _ := json.Marshal(payload)
 	w := httptest.NewRecorder()
@@ -38,7 +52,7 @@ func TestCreateUser_HappyPath(t *testing.T) {
 		Error *api.APIError            `json:"error"`
 	}
 
-	err = json.NewDecoder(w.Body).Decode(&resp)
+	err := json.NewDecoder(w.Body).Decode(&resp)
 	require.NoError(t, err)
 	require.Equal(t, "test", resp.Data.DisplayName)
 	require.Equal(t, int32(10), resp.Data.DailyWordLimit)
@@ -51,15 +65,7 @@ func TestCreateUser_HappyPath(t *testing.T) {
 }
 
 func TestCreateUser_MissingDisplayName(t *testing.T) {
-	conn, terminate, connStr, err := testutil.BootTestDB()
-	require.NoError(t, err, "Failed to boot test db")
-	defer terminate()
-	err = testutil.MigrateTestDB(connStr)
-	require.NoError(t, err, "Failed to migrate test db")
-
-	q := db.New(conn)
-	server := api.NewServer(q)
-
+	testutil.TruncateTestDB(conn)
 	payload := map[string]string{"display_name": ""}
 	b, _ := json.Marshal(payload)
 	w := httptest.NewRecorder()
@@ -70,7 +76,7 @@ func TestCreateUser_MissingDisplayName(t *testing.T) {
 	require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
 
 	var count int
-	err = conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
+	err := conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
 	require.NoError(t, err)
 	require.Equal(t, 0, count)
 }
