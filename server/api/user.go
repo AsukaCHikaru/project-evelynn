@@ -157,7 +157,7 @@ func (s *Server) UpdateUser(w http.ResponseWriter, r *http.Request) {
 
 func (r *UpdateUserRequest) Validate() error {
 	if r.DailyWordLimit != nil && (*r.DailyWordLimit <= 0 || *r.DailyWordLimit > 20) {
-		return errors.New("Daily word limit must be between 0 and 20")
+		return errors.New("Daily word limit must be between 1 and 20")
 	}
 	if r.DisplayName != nil && *r.DisplayName == "" {
 		return errors.New("Display name cannot be empty")
