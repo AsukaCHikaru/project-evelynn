@@ -54,7 +54,7 @@ func (s *Server) CreateUser(w http.ResponseWriter, r *http.Request) {
 
 	ReturnAPISuccess(w, UserProfileResponse{
 		DisplayName:    user.DisplayName,
-		DailyWordLimit: 10, // TODO
+		DailyWordLimit: user.DailyWordLimit,
 	})
 }
 

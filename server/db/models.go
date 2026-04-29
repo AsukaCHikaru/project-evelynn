@@ -286,10 +286,11 @@ type QuizUserVerbProgress struct {
 }
 
 type User struct {
-	UserID      int32
-	UserHashID  string
-	DisplayName string
-	CreatedAt   time.Time
+	UserID         int32
+	UserHashID     string
+	DisplayName    string
+	DailyWordLimit int32
+	CreatedAt      time.Time
 }
 
 type Verb struct {

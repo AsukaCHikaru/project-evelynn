@@ -15,7 +15,7 @@ INSERT INTO users (
   display_name
 ) 
 VALUES ($1, $2) 
-RETURNING user_id, user_hash_id, display_name, created_at
+RETURNING user_id, user_hash_id, display_name, daily_word_limit, created_at
 `
 
 type CreateUserParams struct {
@@ -30,6 +30,7 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, e
 		&i.UserID,
 		&i.UserHashID,
 		&i.DisplayName,
+		&i.DailyWordLimit,
 		&i.CreatedAt,
 	)
 	return i, err
