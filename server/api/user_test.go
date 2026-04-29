@@ -36,92 +36,98 @@ func TestMain(m *testing.M) {
 	os.Exit(code)
 }
 
-func TestCreateUser_HappyPath(t *testing.T) {
-	testutil.TruncateTestDB(conn)
-	payload := map[string]string{"display_name": "test"}
-	b, _ := json.Marshal(payload)
-	w := httptest.NewRecorder()
-	req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(b))
-	req.Header.Set("Content-Type", "application/json")
+func TestUserProfile(t *testing.T) {
+	t.Run("POST", func(t *testing.T) {
+		t.Run("Happy path",
+			func(t *testing.T) {
+				testutil.TruncateTestDB(conn)
+				payload := map[string]string{"display_name": "test"}
+				b, _ := json.Marshal(payload)
+				w := httptest.NewRecorder()
+				req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(b))
+				req.Header.Set("Content-Type", "application/json")
 
-	server.CreateUser(w, req)
+				server.CreateUser(w, req)
 
-	require.Equal(t, http.StatusOK, w.Code, "Expected status code 200")
+				require.Equal(t, http.StatusOK, w.Code, "Expected status code 200")
 
-	var resp struct {
-		Data  *api.UserProfileResponse `json:"data"`
-		Error *api.APIError            `json:"error"`
-	}
+				var resp struct {
+					Data  *api.UserProfileResponse `json:"data"`
+					Error *api.APIError            `json:"error"`
+				}
 
-	err := json.NewDecoder(w.Body).Decode(&resp)
-	require.NoError(t, err)
-	require.Equal(t, "test", resp.Data.DisplayName)
-	require.Equal(t, int32(10), resp.Data.DailyWordLimit)
-	require.Nil(t, resp.Error)
+				err := json.NewDecoder(w.Body).Decode(&resp)
+				require.NoError(t, err)
+				require.Equal(t, "test", resp.Data.DisplayName)
+				require.Equal(t, int32(10), resp.Data.DailyWordLimit)
+				require.Nil(t, resp.Error)
 
-	var name string
-	err = conn.QueryRow("SELECT display_name FROM users WHERE display_name = $1", "test").Scan(&name)
-	require.NoError(t, err)
-	require.Equal(t, "test", name)
-}
+				var name string
+				err = conn.QueryRow("SELECT display_name FROM users WHERE display_name = $1", "test").Scan(&name)
+				require.NoError(t, err)
+				require.Equal(t, "test", name)
+			})
+		t.Run("Missing display name",
+			func(t *testing.T) {
+				testutil.TruncateTestDB(conn)
+				payload := map[string]string{"display_name": ""}
+				b, _ := json.Marshal(payload)
+				w := httptest.NewRecorder()
+				req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(b))
+				req.Header.Set("Content-Type", "application/json")
 
-func TestCreateUser_MissingDisplayName(t *testing.T) {
-	testutil.TruncateTestDB(conn)
-	payload := map[string]string{"display_name": ""}
-	b, _ := json.Marshal(payload)
-	w := httptest.NewRecorder()
-	req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(b))
-	req.Header.Set("Content-Type", "application/json")
+				server.CreateUser(w, req)
+				require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
 
-	server.CreateUser(w, req)
-	require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
+				var count int
+				err := conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
+				require.NoError(t, err)
+				require.Equal(t, 0, count)
+			})
+		t.Run("Duplicate display name",
+			func(t *testing.T) {
+				testutil.TruncateTestDB(conn)
+				_, err := conn.Exec("INSERT INTO users (display_name, user_hash_id) VALUES ($1, $2)", "test", uuid.New().String())
+				require.NoError(t, err)
 
-	var count int
-	err := conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
-	require.NoError(t, err)
-	require.Equal(t, 0, count)
-}
+				payload := map[string]string{"display_name": "test"}
+				b, _ := json.Marshal(payload)
+				w := httptest.NewRecorder()
+				req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(b))
+				req.Header.Set("Content-Type", "application/json")
 
-func TestCreateUser_DuplicateDisplayName(t *testing.T) {
-	testutil.TruncateTestDB(conn)
-	_, err := conn.Exec("INSERT INTO users (display_name, user_hash_id) VALUES ($1, $2)", "test", uuid.New().String())
-	require.NoError(t, err)
+				server.CreateUser(w, req)
 
-	payload := map[string]string{"display_name": "test"}
-	b, _ := json.Marshal(payload)
-	w := httptest.NewRecorder()
-	req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(b))
-	req.Header.Set("Content-Type", "application/json")
+				require.Equal(t, http.StatusOK, w.Code, "Expected status code 200")
 
-	server.CreateUser(w, req)
+				var resp struct {
+					Data  *api.UserProfileResponse `json:"data"`
+					Error *api.APIError            `json:"error"`
+				}
 
-	require.Equal(t, http.StatusOK, w.Code, "Expected status code 200")
+				err = json.NewDecoder(w.Body).Decode(&resp)
+				require.NoError(t, err)
+				require.Equal(t, "test", resp.Data.DisplayName)
+				require.Equal(t, int32(10), resp.Data.DailyWordLimit)
+				require.Nil(t, resp.Error)
+			})
+		t.Run("Malformed JSON",
+			func(t *testing.T) {
+				testutil.TruncateTestDB(conn)
+				invalidJSON := []byte(`{"display_name": "test"`) // Missing closing brace
+				w := httptest.NewRecorder()
+				req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(invalidJSON))
+				req.Header.Set("Content-Type", "application/json")
 
-	var resp struct {
-		Data  *api.UserProfileResponse `json:"data"`
-		Error *api.APIError            `json:"error"`
-	}
+				server.CreateUser(w, req)
 
-	err = json.NewDecoder(w.Body).Decode(&resp)
-	require.NoError(t, err)
-	require.Equal(t, "test", resp.Data.DisplayName)
-	require.Equal(t, int32(10), resp.Data.DailyWordLimit)
-	require.Nil(t, resp.Error)
-}
+				require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
 
-func TestCreateUser_InvalidJSON(t *testing.T) {
-	testutil.TruncateTestDB(conn)
-	invalidJSON := []byte(`{"display_name": "test"`) // Missing closing brace
-	w := httptest.NewRecorder()
-	req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(invalidJSON))
-	req.Header.Set("Content-Type", "application/json")
+				var count int
+				err := conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
+				require.NoError(t, err)
+				require.Equal(t, 0, count)
+			})
+	})
 
-	server.CreateUser(w, req)
-
-	require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
-
-	var count int
-	err := conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
-	require.NoError(t, err)
-	require.Equal(t, 0, count)
 }
