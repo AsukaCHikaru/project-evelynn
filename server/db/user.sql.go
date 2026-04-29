@@ -7,6 +7,7 @@ package db
 
 import (
 	"context"
+	"database/sql"
 )
 
 const createUser = `-- name: CreateUser :one
@@ -50,6 +51,36 @@ type GetUserRow struct {
 func (q *Queries) GetUser(ctx context.Context) (GetUserRow, error) {
 	row := q.db.QueryRowContext(ctx, getUser)
 	var i GetUserRow
+	err := row.Scan(&i.DisplayName, &i.DailyWordLimit)
+	return i, err
+}
+
+const updateUser = `-- name: UpdateUser :one
+UPDATE users
+SET 
+  display_name = COALESCE($1::text, display_name),
+  daily_word_limit = COALESCE($2::int, daily_word_limit)
+WHERE user_id = (
+  SELECT user_id
+  FROM users
+  LIMIT 1
+)
+RETURNING display_name, daily_word_limit
+`
+
+type UpdateUserParams struct {
+	DisplayName    sql.NullString
+	DailyWordLimit sql.NullInt32
+}
+
+type UpdateUserRow struct {
+	DisplayName    string
+	DailyWordLimit int32
+}
+
+func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) (UpdateUserRow, error) {
+	row := q.db.QueryRowContext(ctx, updateUser, arg.DisplayName, arg.DailyWordLimit)
+	var i UpdateUserRow
 	err := row.Scan(&i.DisplayName, &i.DailyWordLimit)
 	return i, err
 }

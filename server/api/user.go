@@ -89,3 +89,78 @@ func (s *Server) GetUserProfile(w http.ResponseWriter, r *http.Request) {
 		DailyWordLimit: user.DailyWordLimit,
 	})
 }
+
+type UpdateUserRequest struct {
+	DisplayName    *string `json:"display_name,omitempty"`
+	DailyWordLimit *int32  `json:"daily_word_limit,omitempty"`
+}
+
+func (s *Server) UpdateUser(w http.ResponseWriter, r *http.Request) {
+	var req UpdateUserRequest
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		ReturnAPIError(w, http.StatusBadRequest, APIError{
+			Code:    "TODO",
+			Message: "Invalid request body",
+		})
+		return
+	}
+
+	err = req.Validate()
+	if err != nil {
+		ReturnAPIError(w, http.StatusBadRequest, APIError{
+			Code:    "TODO",
+			Message: err.Error(),
+		})
+		return
+	}
+
+	var displayName sql.NullString
+	if req.DisplayName != nil {
+		displayName = sql.NullString{
+			String: *req.DisplayName,
+			Valid:  true,
+		}
+	}
+	var dailyWordLimit sql.NullInt32
+	if req.DailyWordLimit != nil {
+		dailyWordLimit = sql.NullInt32{
+			Int32: *req.DailyWordLimit,
+			Valid: true,
+		}
+	}
+
+	user, err := s.q.UpdateUser(r.Context(), db.UpdateUserParams{
+		DisplayName:    displayName,
+		DailyWordLimit: dailyWordLimit,
+	})
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			ReturnAPIError(w, http.StatusNotFound, APIError{
+				Code:    "TODO",
+				Message: "User not found",
+			})
+			return
+		}
+		ReturnAPIError(w, http.StatusInternalServerError, APIError{
+			Code:    "TODO",
+			Message: "Failed to update user profile",
+		})
+		return
+	}
+
+	ReturnAPISuccess(w, UserProfileResponse{
+		DisplayName:    user.DisplayName,
+		DailyWordLimit: user.DailyWordLimit,
+	})
+}
+
+func (r *UpdateUserRequest) Validate() error {
+	if r.DailyWordLimit != nil && (*r.DailyWordLimit <= 0 || *r.DailyWordLimit > 20) {
+		return errors.New("Daily word limit must be between 0 and 20")
+	}
+	if r.DisplayName != nil && *r.DisplayName == "" {
+		return errors.New("Display name cannot be empty")
+	}
+	return nil
+}
