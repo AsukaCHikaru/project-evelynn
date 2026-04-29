@@ -12,6 +12,7 @@ import (
 	"github.com/asukachikaru/project-evelynn/server/api"
 	"github.com/asukachikaru/project-evelynn/server/db"
 	"github.com/asukachikaru/project-evelynn/server/internal/testutil"
+	"github.com/google/uuid"
 	"github.com/stretchr/testify/require"
 )
 
@@ -73,6 +74,50 @@ func TestCreateUser_MissingDisplayName(t *testing.T) {
 	req.Header.Set("Content-Type", "application/json")
 
 	server.CreateUser(w, req)
+	require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
+
+	var count int
+	err := conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
+	require.NoError(t, err)
+	require.Equal(t, 0, count)
+}
+
+func TestCreateUser_DuplicateDisplayName(t *testing.T) {
+	testutil.TruncateTestDB(conn)
+	_, err := conn.Exec("INSERT INTO users (display_name, user_hash_id) VALUES ($1, $2)", "test", uuid.New().String())
+	require.NoError(t, err)
+
+	payload := map[string]string{"display_name": "test"}
+	b, _ := json.Marshal(payload)
+	w := httptest.NewRecorder()
+	req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(b))
+	req.Header.Set("Content-Type", "application/json")
+
+	server.CreateUser(w, req)
+
+	require.Equal(t, http.StatusOK, w.Code, "Expected status code 200")
+
+	var resp struct {
+		Data  *api.UserProfileResponse `json:"data"`
+		Error *api.APIError            `json:"error"`
+	}
+
+	err = json.NewDecoder(w.Body).Decode(&resp)
+	require.NoError(t, err)
+	require.Equal(t, "test", resp.Data.DisplayName)
+	require.Equal(t, int32(10), resp.Data.DailyWordLimit)
+	require.Nil(t, resp.Error)
+}
+
+func TestCreateUser_InvalidJSON(t *testing.T) {
+	testutil.TruncateTestDB(conn)
+	invalidJSON := []byte(`{"display_name": "test"`) // Missing closing brace
+	w := httptest.NewRecorder()
+	req := httptest.NewRequest("POST", "/api/user/profile", bytes.NewReader(invalidJSON))
+	req.Header.Set("Content-Type", "application/json")
+
+	server.CreateUser(w, req)
+
 	require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
 
 	var count int
