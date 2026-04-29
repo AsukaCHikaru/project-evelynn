@@ -35,3 +35,21 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, e
 	)
 	return i, err
 }
+
+const getUser = `-- name: GetUser :one
+SELECT display_name, daily_word_limit
+FROM users
+LIMIT 1
+`
+
+type GetUserRow struct {
+	DisplayName    string
+	DailyWordLimit int32
+}
+
+func (q *Queries) GetUser(ctx context.Context) (GetUserRow, error) {
+	row := q.db.QueryRowContext(ctx, getUser)
+	var i GetUserRow
+	err := row.Scan(&i.DisplayName, &i.DailyWordLimit)
+	return i, err
+}

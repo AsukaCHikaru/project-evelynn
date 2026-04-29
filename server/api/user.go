@@ -1,6 +1,7 @@
 package api
 
 import (
+	"database/sql"
 	"encoding/json"
 	"errors"
 	"net/http"
@@ -63,4 +64,28 @@ func (r *CreateUserRequest) Validate() error {
 		return errors.New("Display name is empty")
 	}
 	return nil
+}
+
+func (s *Server) GetUserProfile(w http.ResponseWriter, r *http.Request) {
+	user, err := s.q.GetUser(r.Context())
+	if err != nil {
+		switch {
+		case errors.Is(err, sql.ErrNoRows):
+			ReturnAPIError(w, http.StatusNotFound, APIError{
+				Code:    "TODO",
+				Message: "User not found",
+			})
+		default:
+			ReturnAPIError(w, http.StatusInternalServerError, APIError{
+				Code:    "TODO",
+				Message: "Failed to get user profile",
+			})
+		}
+		return
+	}
+
+	ReturnAPISuccess(w, UserProfileResponse{
+		DisplayName:    user.DisplayName,
+		DailyWordLimit: user.DailyWordLimit,
+	})
 }

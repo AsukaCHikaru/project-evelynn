@@ -5,3 +5,8 @@ INSERT INTO users (
 ) 
 VALUES ($1, $2) 
 RETURNING *;
+
+-- name: GetUser :one
+SELECT display_name, daily_word_limit
+FROM users
+LIMIT 1;
