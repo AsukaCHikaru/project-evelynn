@@ -78,9 +78,15 @@ func TestUserProfile(t *testing.T) {
 
 				server.CreateUser(w, req)
 				require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
+				var resp struct {
+					Data  *api.UserProfileResponse `json:"data"`
+					Error *api.APIError            `json:"error"`
+				}
+				err := json.NewDecoder(w.Body).Decode(&resp)
+				require.Equal(t, api.ErrInvalidUserProfile, resp.Error.Code)
 
 				var count int
-				err := conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
+				err = conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
 				require.NoError(t, err)
 				require.Equal(t, 0, count)
 			})
@@ -122,9 +128,15 @@ func TestUserProfile(t *testing.T) {
 				server.CreateUser(w, req)
 
 				require.Equal(t, http.StatusBadRequest, w.Code, "Expected status code 400")
+				var resp struct {
+					Data  *api.UserProfileResponse `json:"data"`
+					Error *api.APIError            `json:"error"`
+				}
+				err := json.NewDecoder(w.Body).Decode(&resp)
+				require.Equal(t, api.ErrInvalidRequestBody, resp.Error.Code)
 
 				var count int
-				err := conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
+				err = conn.QueryRow("SELECT COUNT(*) FROM users").Scan(&count)
 				require.NoError(t, err)
 				require.Equal(t, 0, count)
 			})
@@ -162,6 +174,12 @@ func TestUserProfile(t *testing.T) {
 			server.GetUserProfile(w, req)
 
 			require.Equal(t, http.StatusNotFound, w.Code, "Expected status code 404")
+			var resp struct {
+				Data  *api.UserProfileResponse `json:"data"`
+				Error *api.APIError            `json:"error"`
+			}
+			json.NewDecoder(w.Body).Decode(&resp)
+			require.Equal(t, api.ErrUserNotFound, resp.Error.Code)
 		})
 	})
 	t.Run("PATCH", func(t *testing.T) {
@@ -262,7 +280,7 @@ func TestUserProfile(t *testing.T) {
 
 			err = json.NewDecoder(w.Body).Decode(&resp)
 			require.NoError(t, err)
-			require.Equal(t, "Display name cannot be empty", resp.Error.Message)
+			require.Equal(t, api.ErrInvalidUserProfile, resp.Error.Code)
 
 			var displayName string
 			err = conn.QueryRow("SELECT display_name FROM users WHERE display_name = $1", "test").Scan(&displayName)
@@ -289,7 +307,7 @@ func TestUserProfile(t *testing.T) {
 			}
 			err = json.NewDecoder(w.Body).Decode(&resp)
 			require.NoError(t, err)
-			require.Equal(t, "Daily word limit must be between 1 and 20", resp.Error.Message)
+			require.Equal(t, api.ErrInvalidUserProfile, resp.Error.Code)
 			var dailyWordLimit int32
 			err = conn.QueryRow("SELECT daily_word_limit FROM users WHERE display_name = $1", "test").Scan(&dailyWordLimit)
 			require.NoError(t, err)
@@ -316,7 +334,7 @@ func TestUserProfile(t *testing.T) {
 			}
 			err = json.NewDecoder(w.Body).Decode(&resp)
 			require.NoError(t, err)
-			require.Equal(t, "Daily word limit must be between 1 and 20", resp.Error.Message)
+			require.Equal(t, api.ErrInvalidUserProfile, resp.Error.Code)
 			var dailyWordLimit int32
 			err = conn.QueryRow("SELECT daily_word_limit FROM users WHERE display_name = $1", "test").Scan(&dailyWordLimit)
 			require.NoError(t, err)
@@ -334,6 +352,12 @@ func TestUserProfile(t *testing.T) {
 			server.UpdateUser(w, req)
 
 			require.Equal(t, http.StatusNotFound, w.Code, "Expected status code 404")
+			var resp struct {
+				Data  *api.UserProfileResponse `json:"data"`
+				Error *api.APIError            `json:"error"`
+			}
+			json.NewDecoder(w.Body).Decode(&resp)
+			require.Equal(t, api.ErrUserNotFound, resp.Error.Code)
 		})
 	})
 }

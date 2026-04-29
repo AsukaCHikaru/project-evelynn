@@ -24,7 +24,7 @@ func (s *Server) CreateUser(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		ReturnAPIError(w, http.StatusBadRequest, APIError{
-			Code:    "TODO",
+			Code:    ErrInvalidRequestBody,
 			Message: "Invalid request body",
 		},
 		)
@@ -33,7 +33,7 @@ func (s *Server) CreateUser(w http.ResponseWriter, r *http.Request) {
 	err = req.Validate()
 	if err != nil {
 		ReturnAPIError(w, http.StatusBadRequest, APIError{
-			Code:    "TODO",
+			Code:    ErrInvalidUserProfile,
 			Message: "Invalid display name",
 		})
 		return
@@ -47,7 +47,7 @@ func (s *Server) CreateUser(w http.ResponseWriter, r *http.Request) {
 	})
 	if err != nil {
 		ReturnAPIError(w, http.StatusInternalServerError, APIError{
-			Code:    "TODO",
+			Code:    ErrServerError,
 			Message: "Failed to create user",
 		})
 		return
@@ -72,12 +72,12 @@ func (s *Server) GetUserProfile(w http.ResponseWriter, r *http.Request) {
 		switch {
 		case errors.Is(err, sql.ErrNoRows):
 			ReturnAPIError(w, http.StatusNotFound, APIError{
-				Code:    "TODO",
+				Code:    ErrUserNotFound,
 				Message: "User not found",
 			})
 		default:
 			ReturnAPIError(w, http.StatusInternalServerError, APIError{
-				Code:    "TODO",
+				Code:    ErrServerError,
 				Message: "Failed to get user profile",
 			})
 		}
@@ -100,7 +100,7 @@ func (s *Server) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		ReturnAPIError(w, http.StatusBadRequest, APIError{
-			Code:    "TODO",
+			Code:    ErrInvalidRequestBody,
 			Message: "Invalid request body",
 		})
 		return
@@ -109,7 +109,7 @@ func (s *Server) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	err = req.Validate()
 	if err != nil {
 		ReturnAPIError(w, http.StatusBadRequest, APIError{
-			Code:    "TODO",
+			Code:    ErrInvalidUserProfile,
 			Message: err.Error(),
 		})
 		return
@@ -137,13 +137,13 @@ func (s *Server) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
 			ReturnAPIError(w, http.StatusNotFound, APIError{
-				Code:    "TODO",
+				Code:    ErrUserNotFound,
 				Message: "User not found",
 			})
 			return
 		}
 		ReturnAPIError(w, http.StatusInternalServerError, APIError{
-			Code:    "TODO",
+			Code:    ErrServerError,
 			Message: "Failed to update user profile",
 		})
 		return

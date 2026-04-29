@@ -11,8 +11,8 @@ type APIResponse struct {
 }
 
 type APIError struct {
-	Code    string `json:"code"`
-	Message string `json:"message"`
+	Code    APIErrorCode `json:"code"`
+	Message string       `json:"message"`
 }
 
 func ReturnAPISuccess(w http.ResponseWriter, data any) {
