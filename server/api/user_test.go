@@ -129,5 +129,39 @@ func TestUserProfile(t *testing.T) {
 				require.Equal(t, 0, count)
 			})
 	})
+	t.Run("GET", func(t *testing.T) {
+		t.Run("Happy path", func(t *testing.T) {
+			testutil.TruncateTestDB(conn)
+			_, err := conn.Exec("INSERT INTO users (display_name, user_hash_id) VALUES ($1, $2)", "test", uuid.New().String())
+			require.NoError(t, err)
 
+			w := httptest.NewRecorder()
+			req := httptest.NewRequest("GET", "/api/user/profile", nil)
+
+			server.GetUserProfile(w, req)
+
+			require.Equal(t, http.StatusOK, w.Code, "Expected status code 200")
+
+			var resp struct {
+				Data  *api.UserProfileResponse `json:"data"`
+				Error *api.APIError            `json:"error"`
+			}
+
+			err = json.NewDecoder(w.Body).Decode(&resp)
+			require.NoError(t, err)
+			require.Equal(t, "test", resp.Data.DisplayName)
+			require.Equal(t, int32(10), resp.Data.DailyWordLimit)
+			require.Nil(t, resp.Error)
+		})
+		t.Run("No user found", func(t *testing.T) {
+			testutil.TruncateTestDB(conn)
+
+			w := httptest.NewRecorder()
+			req := httptest.NewRequest("GET", "/api/user/profile", nil)
+
+			server.GetUserProfile(w, req)
+
+			require.Equal(t, http.StatusNotFound, w.Code, "Expected status code 404")
+		})
+	})
 }
